@@ -9,7 +9,6 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
 
-// Rota raiz informativa
 app.get('/', (req, res) => {
   res.json({
     mensagem: 'API de Professores ativa',
@@ -27,7 +26,6 @@ app.get('/', (req, res) => {
 
 app.use('/professores', professoresRouter);
 
-// 404 fallback
 app.use((req, res) => {
   res.status(404).json({ erro: 'Rota não encontrada' });
 });

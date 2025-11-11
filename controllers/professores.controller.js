@@ -46,7 +46,6 @@ export function adicionarTurmaParaProfessor(req, res) {
     return res.status(400).json({ erro: 'Informe codigo, disciplina e alunos (array)' });
   }
 
-  // Evitar duplicidade de código de turma no mesmo professor
   const existe = (professor.turmas || []).some((t) => t.codigo === codigo);
   if (existe) {
     return res.status(409).json({ erro: 'Já existe uma turma com este código para este professor' });
